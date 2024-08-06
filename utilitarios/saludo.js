@@ -1,6 +1,8 @@
 saludar=function(){
     let nombre;
+    let apellido;
     nombre=recuperarTexto("txtNombre");
+    apellido=recuperarTexto("txtApellido");
 }
 
 recuperarTexto=function(idComponente){
