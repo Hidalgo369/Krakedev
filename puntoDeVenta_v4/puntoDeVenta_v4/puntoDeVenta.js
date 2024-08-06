@@ -24,8 +24,7 @@ calcularValorTotal = function () {
     valorSubtotal=calcularSubtotal(precioProducto,cantidad); // Tomar en cuenta el orden de como pasa los parametos de la funcion y colocar bien los parametros cuando invoca la funcion.
 
     //5. Mostrar valorSubtotal en el componente lblSubtotal
-    let cmpSubtotal;
-    cmpSubtotal=document.getElementById("lblSubtotal");
+    let cmpSubtotal=document.getElementById("lblSubtotal");
     cmpSubtotal.innerText=valorSubtotal;
     // Utilizar mostrarTexto
         /*
@@ -40,8 +39,7 @@ calcularValorTotal = function () {
     valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
 
     //7. Mostrar el resultado en el componente lblDescuento
-    let cmpDescuento;
-    cmpDescuento=document.getElementById("lblDescuento");
+    let cmpDescuento=document.getElementById("lblDescuento");
     cmpDescuento.innerText=valorDescuento;
     /*
         Caso de prueba: 
@@ -56,8 +54,7 @@ calcularValorTotal = function () {
     valorIVA=calcularIVA(valorSubtotal-valorDescuento);// El IVA debe calcularse sobre el valor del subtotal menos el descuento
 
     //9. Mostrar el resultado en el componente lblValorIVA    
-    let cmpIVA;
-    cmpIVA=document.getElementById("lblValorIVA");
+    let cmpIVA=document.getElementById("lblValorIVA");
     cmpIVA.innerText=valorIVA;
         /*
             Caso de prueba: 
@@ -75,7 +72,11 @@ calcularValorTotal = function () {
             Si el caso de prueba es exitoso, hacer un commit
         */
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
+
     //11. Mostrar el resultado en el componente lblTotal
+    let cmpTotal=document.getElementById("lblTotal");
+    cmpTotal.innerText=valorTotal;
     /*
         Caso de prueba: 
             - cantidad: 10
@@ -92,6 +93,7 @@ calcularValorTotal = function () {
        */
             
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
+   
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
