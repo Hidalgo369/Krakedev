@@ -12,7 +12,7 @@ calcularValorTotal = function () {
     //3. Recuperar cantidad como int
     let cantidad=parseInt(cmpCantidad.value); // SE UTILIZA PARA RECUPERAR LA CANTIDAD COMO INT
     //4. Recuperar el porcentaje de descuento como int
-    let porcentajeDescuento=parseInt(cmpPorcentajeDescuento);
+    let porcentajeDescuento=parseInt(cmpPorcentajeDescuento.value);
 
     //variables para almacenar los retornos de las funciones
     let valorSubtotal;
@@ -35,8 +35,14 @@ calcularValorTotal = function () {
             Subtotal esperado: 54
         Si el caso de prueba es exitoso, hacer un commit
      */
+
     //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
+    valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento);
+
     //7. Mostrar el resultado en el componente lblDescuento
+    let cmpDescuento;
+    cmpDescuento=document.getElementById("lblDescuento");
+    cmpDescuento.innerText=valorDescuento;
     /*
         Caso de prueba: 
             - cantidad: 10 
@@ -45,9 +51,14 @@ calcularValorTotal = function () {
             - Descuento esperado: 5.4
         Si el caso de prueba es exitoso, hacer un commit
      */
+
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
-    // El IVA debe calcularse sobre el valor del subtotal menos el descuento
+    valorIVA=calcularIVA(valorSubtotal-valorDescuento);// El IVA debe calcularse sobre el valor del subtotal menos el descuento
+
     //9. Mostrar el resultado en el componente lblValorIVA    
+    let cmpIVA;
+    cmpIVA=document.getElementById("lblValorIVA");
+    cmpIVA.innerText=valorIVA;
         /*
             Caso de prueba: 
                 - cantidad: 10 
