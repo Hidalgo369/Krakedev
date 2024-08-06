@@ -1,9 +1,10 @@
 saludar=function(){
-    let nombre;
-    let apellido;
-    nombre=recuperarTexto("txtNombre");
-    apellido=recuperarTexto("txtApellido");
+    let nombre=recuperarTexto("txtNombre");;
+    let apellido=recuperarTexto("txtApellido");;
+    let edad=recuperarInt("txtEdad");
+    let estatura=recuperarFloat("txtEstatura");
 }
+
 
 recuperarTexto=function(idComponente){
     let componente;
@@ -11,4 +12,16 @@ recuperarTexto=function(idComponente){
     componente=document.getElementById(idComponente);
     valorIngresado=componente.value;
     return valorIngresado;
+}
+
+recuperarInt=function(idComponente){
+    let valorCaja= recuperarTexto(idComponente);
+    let valorEntero= parseInt(valorCaja);
+    return valorEntero;
+}
+
+recuperarFloat=function(idComponente){
+    let valorCaja= recuperarTexto(idComponente);
+    let valorEntero= parseFloat(valorCaja);
+    return valorEntero;
 }
