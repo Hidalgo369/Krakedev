@@ -6,4 +6,11 @@ calcularPromedioNotas=function(){
     let mostrarPromedio=promedio.toFixed(2);
 
     mostrarTexto("lblResultado",mostrarPromedio);
+
+    if (promedio>7){
+        mostrarImagen("img","./imagenes/exito.gif");
+    }
+    else{
+        mostrarImagen("img","./imagenes/fracaso.gif");
+    }
 }
