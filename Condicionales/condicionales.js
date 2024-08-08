@@ -162,12 +162,11 @@ dejarSalir=function(notaMatematica,notaFisica,notaGeometria){
     notaMatematica=parseFloat(notaMatematica);
     notaFisica=parseFloat(notaMatematica);
     notaGeometria=parseFloat(notaGeometria);
-    
+
     if((notaMatematica>90 || notaFisica>90 || notaGeometria>80) && (notaFisica>notaMatematica)){
         return true;
     }
     else{
         return false;
     }
-
 }
