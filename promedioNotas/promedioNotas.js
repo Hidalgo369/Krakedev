@@ -7,10 +7,20 @@ calcularPromedioNotas=function(){
 
     mostrarTexto("lblResultado",mostrarPromedio);
 
-    if (promedio>7){
+    if (promedio<5 && promedio>0){
+        mostrarTexto("ar","Reprobado");
+        mostrarImagen("img","./imagenes/fracaso.gif");
+    }
+    else if(promedio>=5 && promedio<=8){
+        mostrarTexto("ar","Buen Trabajo!");
+        mostrarImagen("img","./imagenes/good.gif");
+    }
+    else if(promedio>8 && promedio<=10){
+        mostrarTexto("ar","Excelente!");
         mostrarImagen("img","./imagenes/exito.gif");
     }
     else{
-        mostrarImagen("img","./imagenes/fracaso.gif");
+        mostrarTexto("ar","Datos Incorrectos");
+        mostrarImagen("img","./imagenes/incorrecto.gif");
     }
 }
