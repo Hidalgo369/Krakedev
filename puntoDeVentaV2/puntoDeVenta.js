@@ -14,10 +14,10 @@ calcularValorTotal = function () {
         let valorIVA = calcularIVA(valorSubtotal - valorDescuento);
         let valorTotal = calcularTotal(valorSubtotal, valorDescuento, valorIVA);
         
-        mostrarTexto("lblSubtotal",valorSubtotal);
-        mostrarTexto("lblDescuento",valorDescuento);
-        mostrarTexto("lblValorIVA",valorIVA);
-        mostrarTexto("lblTotal",valorTotal);   
+        mostrarTexto("lblSubtotal",valorSubtotal.toFixed(2));
+        mostrarTexto("lblDescuento",valorDescuento.toFixed(2));
+        mostrarTexto("lblValorIVA",valorIVA.toFixed(2));
+        mostrarTexto("lblTotal",valorTotal.toFixed(2));   
     }
     else {
         limpiarLabel();
