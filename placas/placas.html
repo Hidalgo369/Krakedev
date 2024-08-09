@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validación de Placa</title>
+    <link rel="stylesheet" href="placas.css">
+    <script src="placas.js"></script>
+    <script src="serviciosPlacas.js"></script>
+    <script src="utilitariosCadenas.js"></script>
+</head>
+
+<body>
+    <div class="contenidoPlaca">
+        <div class="principal">
+            <h1>Valida tu Placa</h1>
+            <h3 class="titulo">Ingrese la placa:</h3>
+
+            <div class="ingresoPlaca">
+                <img src="./imagenes/placa.png" class="imgPlaca">
+                <input type="text" id="txtPlaca" class="txtPlaca" placeholder="Ej. ABC-123">
+            </div>
+            <button id="validarBtn" onclick="validarPlaca()">Validar</button>
+        </div>
+
+        <div id="lblEstructura" class="info-label"></div>
+        <div class="contentErrores">
+            <div id="lblErrores" class="info-error"></div>
+        </div>
+    </div>
+
+    <div class="contenidoConsulta">
+        <h1>Información</h1>
+        <h3>Provincia a la que pertenece:</h3>
+        <p id="lblProvincia"></p>
+        <h3>Tipo de vehículo:</h2>
+        <p id="lblTipoVehiculo"></p>
+        <h3>Días que tiene pico y placa:</h3>
+        <p id="lblPicoYPlaca"></p>
+    </div>
+
+</body>
+
+</html>
