@@ -124,7 +124,7 @@ esMiniscula=function(caracter){
 esDigito=function(caracter){
     codigoAscci=caracter.charCodeAt(0);
 
-    if(codigoAscci>=87 && codigoAscci<=122){
+    if(codigoAscci>=48 && codigoAscci<=57){
         return true;
     }
     else{
