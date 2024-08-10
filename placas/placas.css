@@ -5,6 +5,8 @@ body {
     flex-direction: row;
     background: radial-gradient(circle at 50% 50%, #192233 20%, #000);
     color:aliceblue;
+    align-items: flex-start; 
+    margin: 0 8%;
 }
 
 .contenidoPlaca {
@@ -79,6 +81,7 @@ button {
     font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin: 0 20px;
 }
 
 button:hover {
@@ -107,7 +110,7 @@ button:hover {
     width: 420px;
     height: auto;
     margin-top: 40px;
-    padding: 30px 50px;
+    padding: 10px 50px;
     border-radius: 15px;
     text-align: start;
     border: 2px solid #FFFFFF; 
@@ -117,7 +120,33 @@ button:hover {
                 0 0 12px rgba(255, 255, 255, 0.3); 
 }
 
+.infoContent2{
+    margin-bottom: 30px;
+}
+
+.mapa {
+    height: 225px;
+    margin-top: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+.mapa:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
 h3{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    line-height: 10px;
+}
+
+p{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#eb5702;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }

@@ -19,7 +19,10 @@
                 <img src="./imagenes/placa.png" class="imgPlaca">
                 <input type="text" id="txtPlaca" class="txtPlaca" placeholder="Ej. ABC-123">
             </div>
-            <button id="validarBtn" onclick="validarPlaca()">Validar</button>
+            <div class="botones">
+                <button id="validarBtn" onclick="validarPlaca()">Validar</button>
+                <button id="validarBtn" onclick="limpiarTodo()">Limpiar</button>
+            </div>
         </div>
 
         <div id="lblEstructura" class="info-label"></div>
@@ -29,13 +32,14 @@
     </div>
 
     <div class="contenidoConsulta">
-        <h1>Información</h1>
+        <h1 class="infoContent2">Información</h1>
         <h3>Provincia a la que pertenece:</h3>
+        <img src="./imagenes/provincias/mapa.png" id="imgMapa" class="mapa"/>
         <p id="lblProvincia"></p>
         <h3>Tipo de vehículo:</h2>
-        <p id="lblTipoVehiculo"></p>
-        <h3>Días que tiene pico y placa:</h3>
-        <p id="lblPicoYPlaca"></p>
+            <p id="lblTipoVehiculo"></p>
+            <h3>Días que tiene pico y placa:</h3>
+            <p id="lblPicoYPlaca"></p>
     </div>
 
 </body>

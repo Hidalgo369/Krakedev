@@ -57,55 +57,80 @@ validarEstructura = function (placa) {
 obtenerProvincia=function(placa){
     let provincia;
     let primerCaracter = placa.charAt(0);
+    let funcionImg = mostrarImagen("imgMapa","./imagenes/provincias/"+primerCaracter+".png");
 
     if (primerCaracter == "A") {
         provincia = "Azuay";
-    } else if (primerCaracter== "B") {
+        funcionImg;
+    } else if (primerCaracter == "B") {
         provincia = "Bolívar";
+        funcionImg;
     } else if (primerCaracter == "C") {
         provincia = "Carchi";
+        funcionImg;
     } else if (primerCaracter == "E") {
         provincia = "Esmeraldas";
+        funcionImg;
     } else if (primerCaracter == "G") {
         provincia = "Guayas";
+        funcionImg;
     } else if (primerCaracter == "H") {
         provincia = "Chimborazo";
+        funcionImg;
     } else if (primerCaracter ==="I") {
         provincia = "Imbabura";
+        funcionImg;
     } else if (primerCaracter == "J") {
         provincia = "Santo Domingo de los Tsáchilas";
+        funcionImg;
     } else if (primerCaracter == "K") {
         provincia = "Sucumbíos";
+        funcionImg;
     } else if (primerCaracter == "L") {
         provincia = "Loja";
+        funcionImg;
     } else if (primerCaracter == "M") {
         provincia = "Manabí";
+        funcionImg;
     } else if (primerCaracter == "N") {
         provincia = "Napo";
+        funcionImg;
     } else if (primerCaracter == "O") {
         provincia = "El Oro";
+        funcionImg;
     } else if (primerCaracter ==="P") {
         provincia = "Pichincha";
+        funcionImg;
     } else if (primerCaracter == "Q") {
         provincia = "Orellana";
+        funcionImg;
     } else if (primerCaracter == "R") {
         provincia = "Los Ríos";
+        funcionImg;
     } else if (primerCaracter == "S") {
         provincia = "Pastaza";
+        funcionImg;
     } else if (primerCaracter == "T") {
         provincia = "Tungurahua";
+        funcionImg;
     } else if (primerCaracter == "U") {
         provincia = "Cañar";
+        funcionImg;
     } else if (primerCaracter == "V") {
         provincia = "Morona Santiago";
+        funcionImg;
     } else if (primerCaracter == "W") {
         provincia = "Galápagos";
+        funcionImg;
     } else if (primerCaracter == "X") {
         provincia = "Cotopaxi";
+        funcionImg;
     } else if (primerCaracter == "Y") {
         provincia = "Santa Elena";
+        funcionImg;
     } else if (primerCaracter == "Z") {
         provincia = "Zamora Chinchipe";
+        funcionImg;
     } else {
         provincia = null;
     }
@@ -157,5 +182,4 @@ obtenerDiaPicoYPlaca=function(placa){
     }
 
     return dias;
-
 }

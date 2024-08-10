@@ -30,3 +30,9 @@ esGuion = function(caracter){
         return false;
     }
 }
+
+mostrarImagen=function(idComponente,rutaImagen){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.src=rutaImagen;
+}

@@ -42,6 +42,8 @@ validarPlaca = function(){
 }
 
 limpiarInfo=function(){
+    let mostrar = document.getElementById("lblEstructura");
+    mostrar.innerHTML = "";
     let limpiarErrores = document.getElementById("lblErrores");
     limpiarErrores.innerText = "";
     let resultadoProvincia = document.getElementById("lblProvincia");
@@ -50,4 +52,11 @@ limpiarInfo=function(){
     resultadoVehiculo.innerText = "";
     let resultadoPicoYPlaca = document.getElementById("lblPicoYPlaca");
     resultadoPicoYPlaca.innerText = "";
+}
+
+limpiarTodo=function(){
+    limpiarInfo();
+    let valorUsuario = document.getElementById("txtPlaca");
+    valorUsuario.value = "";
+    mostrarImagen("imgMapa","./imagenes/provincias/mapa.png");
 }
