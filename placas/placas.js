@@ -8,10 +8,22 @@ validarPlaca = function(){
         let correcto = "✅ Estructura válida";
         let mostrar = document.getElementById("lblEstructura");
         mostrar.innerText = correcto;
+
+        let cmpProvincia = document.getElementById("lblProvincia");
+        let cmpVehiculo = document.getElementById("lblTipoVehiculo");
+
         let provincia = obtenerProvincia(placa);
         if(provincia != null){
-            let cmpProvincia = document.getElementById("lblProvincia");
             cmpProvincia.innerText = provincia;
+        }else if(provincia == null){   
+            cmpProvincia.innerText = "Provincia incorrecta";
+        }
+
+        let tipoVehiculo=obtenerTipoVehiculo(placa);
+        if(tipoVehiculo != null){
+            cmpVehiculo.innerText = tipoVehiculo;
+        }else if(tipoVehiculo == null){
+            cmpVehiculo.innerText = "Vehículo incorrecto";
         }
     }else{
         let mal = "❌ Estructura incorrecta";

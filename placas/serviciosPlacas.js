@@ -58,57 +58,78 @@ obtenerProvincia=function(placa){
     let provincia;
     placa=placa.charAt(0);
 
-    if (placa === "A") {
+    if (placa == "A") {
         provincia = "Azuay";
-    } else if (placa === "B") {
+    } else if (placa == "B") {
         provincia = "Bolívar";
-    } else if (placa === "C") {
+    } else if (placa == "C") {
         provincia = "Carchi";
-    } else if (placa === "E") {
+    } else if (placa == "E") {
         provincia = "Esmeraldas";
-    } else if (placa === "G") {
+    } else if (placa == "G") {
         provincia = "Guayas";
-    } else if (placa === "H") {
+    } else if (placa == "H") {
         provincia = "Chimborazo";
-    } else if (placa === "I") {
+    } else if (placa ==="I") {
         provincia = "Imbabura";
-    } else if (placa === "J") {
-        provincia = "Loja";
-    } else if (placa === "K") {
+    } else if (placa == "J") {
         provincia = "Santo Domingo de los Tsáchilas";
-    } else if (placa === "L") {
-        provincia = "Los Ríos";
-    } else if (placa === "M") {
-        provincia = "Manabí";
-    } else if (placa === "N") {
-        provincia = "Napo";
-    } else if (placa === "O") {
-        provincia = "El Oro";
-    } else if (placa === "P") {
-        provincia = "Pichincha";
-    } else if (placa === "Q") {
-        provincia = "Orellana";
-    } else if (placa === "R") {
-        provincia = "Cañar";
-    } else if (placa === "S") {
-        provincia = "Santa Elena";
-    } else if (placa === "T") {
-        provincia = "Tungurahua";
-    } else if (placa === "U") {
+    } else if (placa == "K") {
         provincia = "Sucumbíos";
-    } else if (placa === "V") {
-        provincia = "Morona Santiago";
-    } else if (placa === "W") {
-        provincia = "Galápagos";
-    } else if (placa === "X") {
-        provincia = "Cotopaxi";
-    } else if (placa === "Y") {
+    } else if (placa == "L") {
+        provincia = "Loja";
+    } else if (placa == "M") {
+        provincia = "Manabí";
+    } else if (placa == "N") {
+        provincia = "Napo";
+    } else if (placa == "O") {
+        provincia = "El Oro";
+    } else if (placa ==="P") {
+        provincia = "Pichincha";
+    } else if (placa == "Q") {
+        provincia = "Orellana";
+    } else if (placa == "R") {
+        provincia = "Los Ríos";
+    } else if (placa == "S") {
         provincia = "Pastaza";
-    } else if (placa === "Z") {
+    } else if (placa == "T") {
+        provincia = "Tungurahua";
+    } else if (placa == "U") {
+        provincia = "Cañar";
+    } else if (placa == "V") {
+        provincia = "Morona Santiago";
+    } else if (placa == "W") {
+        provincia = "Galápagos";
+    } else if (placa == "X") {
+        provincia = "Cotopaxi";
+    } else if (placa == "Y") {
+        provincia = "Santa Elena";
+    } else if (placa == "Z") {
         provincia = "Zamora Chinchipe";
     } else {
         provincia = null;
     }
-    
+
     return provincia;
+}
+
+obtenerTipoVehiculo=function(placa){
+    let tipoVehiculo;
+    placa=placa.charAt(1);
+    if(placa == "A" || placa == "U" || placa == "Z"){
+        tipoVehiculo = "Vehículo comercial";
+    }else if(placa == "E"){
+        tipoVehiculo = "Vehículo gubernamental";
+    }else if(placa == "X"){
+        tipoVehiculo = "Vehículo de uso oficial";
+    }else if(placa == "M"){
+        tipoVehiculo = "Vehículo de los gobiernos autónomos";
+    }else if(placa == "B" || placa == "C" || placa == "D" || placa == "F" || placa == "G"|| placa == "H"|| placa == "I"|| placa == "J"
+        || placa == "K" || placa == "L" || placa == "N" || placa == "O" || placa == "P" || placa == "Q" || placa == "R" || placa == "S"
+        || placa == "T" || placa == "V" || placa == "W" || placa == "Y"){
+        tipoVehiculo = "Vehículo particular";
+    }else{
+        return null;
+    }
+    return tipoVehiculo;
 }
