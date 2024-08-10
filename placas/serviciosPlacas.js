@@ -56,55 +56,55 @@ validarEstructura = function (placa) {
 
 obtenerProvincia=function(placa){
     let provincia;
-    placa=placa.charAt(0);
+    let primerCaracter = placa.charAt(0);
 
-    if (placa == "A") {
+    if (primerCaracter == "A") {
         provincia = "Azuay";
-    } else if (placa == "B") {
+    } else if (primerCaracter== "B") {
         provincia = "Bolívar";
-    } else if (placa == "C") {
+    } else if (primerCaracter == "C") {
         provincia = "Carchi";
-    } else if (placa == "E") {
+    } else if (primerCaracter == "E") {
         provincia = "Esmeraldas";
-    } else if (placa == "G") {
+    } else if (primerCaracter == "G") {
         provincia = "Guayas";
-    } else if (placa == "H") {
+    } else if (primerCaracter == "H") {
         provincia = "Chimborazo";
-    } else if (placa ==="I") {
+    } else if (primerCaracter ==="I") {
         provincia = "Imbabura";
-    } else if (placa == "J") {
+    } else if (primerCaracter == "J") {
         provincia = "Santo Domingo de los Tsáchilas";
-    } else if (placa == "K") {
+    } else if (primerCaracter == "K") {
         provincia = "Sucumbíos";
-    } else if (placa == "L") {
+    } else if (primerCaracter == "L") {
         provincia = "Loja";
-    } else if (placa == "M") {
+    } else if (primerCaracter == "M") {
         provincia = "Manabí";
-    } else if (placa == "N") {
+    } else if (primerCaracter == "N") {
         provincia = "Napo";
-    } else if (placa == "O") {
+    } else if (primerCaracter == "O") {
         provincia = "El Oro";
-    } else if (placa ==="P") {
+    } else if (primerCaracter ==="P") {
         provincia = "Pichincha";
-    } else if (placa == "Q") {
+    } else if (primerCaracter == "Q") {
         provincia = "Orellana";
-    } else if (placa == "R") {
+    } else if (primerCaracter == "R") {
         provincia = "Los Ríos";
-    } else if (placa == "S") {
+    } else if (primerCaracter == "S") {
         provincia = "Pastaza";
-    } else if (placa == "T") {
+    } else if (primerCaracter == "T") {
         provincia = "Tungurahua";
-    } else if (placa == "U") {
+    } else if (primerCaracter == "U") {
         provincia = "Cañar";
-    } else if (placa == "V") {
+    } else if (primerCaracter == "V") {
         provincia = "Morona Santiago";
-    } else if (placa == "W") {
+    } else if (primerCaracter == "W") {
         provincia = "Galápagos";
-    } else if (placa == "X") {
+    } else if (primerCaracter == "X") {
         provincia = "Cotopaxi";
-    } else if (placa == "Y") {
+    } else if (primerCaracter == "Y") {
         provincia = "Santa Elena";
-    } else if (placa == "Z") {
+    } else if (primerCaracter == "Z") {
         provincia = "Zamora Chinchipe";
     } else {
         provincia = null;
@@ -115,21 +115,47 @@ obtenerProvincia=function(placa){
 
 obtenerTipoVehiculo=function(placa){
     let tipoVehiculo;
-    placa=placa.charAt(1);
-    if(placa == "A" || placa == "U" || placa == "Z"){
+    let segundoCaracter = placa.charAt(1);
+
+    if(segundoCaracter == "A" || segundoCaracter == "U" || segundoCaracter == "Z"){
         tipoVehiculo = "Vehículo comercial";
-    }else if(placa == "E"){
+    }else if(segundoCaracter == "E"){
         tipoVehiculo = "Vehículo gubernamental";
-    }else if(placa == "X"){
+    }else if(segundoCaracter == "X"){
         tipoVehiculo = "Vehículo de uso oficial";
-    }else if(placa == "M"){
+    }else if(segundoCaracter == "M"){
         tipoVehiculo = "Vehículo de los gobiernos autónomos";
-    }else if(placa == "B" || placa == "C" || placa == "D" || placa == "F" || placa == "G"|| placa == "H"|| placa == "I"|| placa == "J"
-        || placa == "K" || placa == "L" || placa == "N" || placa == "O" || placa == "P" || placa == "Q" || placa == "R" || placa == "S"
-        || placa == "T" || placa == "V" || placa == "W" || placa == "Y"){
+    }else if(segundoCaracter == "B" || segundoCaracter == "C" || segundoCaracter == "D" || segundoCaracter == "F" || segundoCaracter== "G"
+        || segundoCaracter == "H"|| segundoCaracter == "I"|| segundoCaracter== "J" || segundoCaracter == "K" || segundoCaracter == "L" 
+        || segundoCaracter == "N" || segundoCaracter == "O" || segundoCaracter == "P" || segundoCaracter == "Q" || segundoCaracter == "R" 
+        || segundoCaracter == "S" || segundoCaracter == "T" || segundoCaracter == "V" || segundoCaracter == "W" || segundoCaracter == "Y"){
         tipoVehiculo = "Vehículo particular";
     }else{
         return null;
     }
+
     return tipoVehiculo;
+}
+
+obtenerDiaPicoYPlaca=function(placa){
+    let longitud = placa.length - 1;
+    let ultimoCaracter = placa.charAt(longitud);
+    let dias;
+
+    if(ultimoCaracter == 1 || ultimoCaracter == 2){
+        dias = "Lunes";
+    }else if(ultimoCaracter == 3 || ultimoCaracter == 4){
+        dias = "Martes";
+    }else if(ultimoCaracter == 5 || ultimoCaracter == 6){
+        dias = "Miércoles";
+    }else if(ultimoCaracter == 7 || ultimoCaracter == 8){
+        dias = "Jueves";
+    }else if(ultimoCaracter == 9 || ultimoCaracter == 0){
+        dias = "Viernes";
+    }else{
+        return null;
+    }
+
+    return dias;
+
 }
