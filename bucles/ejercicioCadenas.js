@@ -16,7 +16,36 @@ invertirCadena = function (cadena) {
         letra = cadena.charAt(posicion);
         resultado += letra;
     }
+    contarMayusculas(resultado);
     return resultado;
+}
+
+buscarLetra = function (cadena, letra) {
+    let letraAlterada;
+    let existeLetra = false;
+    for (let i = 0; i < cadena.length; i++) {
+        letraAlterada = cadena.charAt(i);
+        if (letraAlterada == letra) {
+            existeLetra = true;
+        }
+    }
+    if (existeLetra == true) {
+        console.log("existe");
+    } else {
+        console.log("no existe");
+    }
+}
+
+contarMayusculas=function(cadena){
+    let letra;
+    let contadorMayusculas=0;
+    for(let i=0;i<cadena.length;i++){
+        letra=cadena.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas++;
+        }
+    }
+    console.log(contadorMayusculas);
 }
 
 recorrerCadena = function (cadena) {

@@ -1,0 +1,70 @@
+mostrarImagen = function (idComponente, rutaImagen) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.src = rutaImagen;
+}
+
+mostrarTexto = function (idComponente, mensaje) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.innerText = mensaje;
+}
+mostrarTextoEnCaja = function (idComponente, mensaje) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.value = mensaje;
+}
+
+recuperarTexto = function (idComponente) {
+    let componente;
+    let valorIngresado;
+    componente = document.getElementById(idComponente);
+    valorIngresado = componente.value;
+    return valorIngresado;
+}
+
+recuperarInt = function (idComponente) {
+    let valorCaja = recuperarTexto(idComponente);
+    let valorEntero = parseInt(valorCaja);
+    return valorEntero;
+}
+
+recuperarFloat = function (idComponente) {
+    let valorCaja = recuperarTexto(idComponente);
+    let valorEntero = parseFloat(valorCaja);
+    return valorEntero;
+}
+
+
+esMayuscula = function (caracter) {
+    codigoAscci = caracter.charCodeAt(0);
+
+    if (codigoAscci >= 65 && codigoAscci <= 90) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+esDigito = function (caracter) {
+    codigoAscci = caracter.charCodeAt(0);
+
+    if (codigoAscci >= 48 && codigoAscci <= 57) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+esCaracterEspecial = function (caracter) {
+    codigoAscci = caracter.charCodeAt(0);
+
+    if (codigoAscci == 42 || codigoAscci == 45 || codigoAscci == 95) {//* - _
+        return true;
+    }
+    else {
+        return false;
+    }
+}

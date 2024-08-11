@@ -34,3 +34,15 @@ recuperarFloat=function(idComponente){
     let valorEntero= parseFloat(valorCaja);
     return valorEntero;
 }
+
+
+esMayuscula=function(caracter){
+    codigoAscci=caracter.charCodeAt(0);
+
+    if(codigoAscci>=65 && codigoAscci<=90){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
