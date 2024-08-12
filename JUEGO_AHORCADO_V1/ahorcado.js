@@ -30,19 +30,41 @@ validar = function (letra) {
     let letrasEncontradas = 0;
     for (let i = 0; i < palabraSecreta.length; i++) {
         if (palabraSecreta.charAt(i) == letra) {
+            coincidencias++;
             mostrarLetra(letra, i);
             letrasEncontradas++;
         }
     }
+    if (letrasEncontradas == 0) {
+        alert("La letra no es parte de la palabra");
+        errores++;
+        mostrarAhorcado();
+    }
 }
 
 ingresarLetra = function () {
+    intentos++;
     let letra = recuperarTexto("txtLetra");
     if (esMayuscula(letra)) {
         validar(letra);
+        if (coincidencias == 5) {
+            mostrarImagen("ahorcadoImagen", "ganador.gif");
+        }
+        if (intentos == 10) {
+            mostrarImagen("ahorcadoImagen", "gameOver.gif");
+        }
     } else {
         alert("Solo se aceptan mayúsculas");
     }
+}
+
+let intentos = 0;
+let coincidencias = 0;
+let errores = 0;
+
+mostrarAhorcado = function () {
+    mostrarImagen("ahorcadoImagen", "Ahorcado_0" + errores + ".png");
+
 }
 
 //Extras:
@@ -61,3 +83,8 @@ mostrarTexto = function (idComponente, mensaje) {
     componente.innerText = mensaje;
 }
 
+mostrarImagen = function (idComponente, rutaImagen) {
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.src = rutaImagen;
+}
