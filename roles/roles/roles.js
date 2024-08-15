@@ -45,4 +45,20 @@ mostrarEmpleados = function () {
     }
     contenidoTabla += "</table>";
     cmpTabla.innerHTML = contenidoTabla;
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+}
+
+let esNuevo = false;
+
+ejecutarNuevo = function () {
+    esNuevo = true;
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
 }
