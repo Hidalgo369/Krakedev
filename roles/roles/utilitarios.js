@@ -52,10 +52,10 @@ habilitarComponente = function (idComponente) {
 }
 
 //Extras
-esDigito=function(numeros) {
+esDigito = function (numeros) {
     for (let i = 0; i < numeros.length; i++) {
         let codigoAscii = numeros.charCodeAt(i);
-        if (codigoAscii < 48 || codigoAscii > 57) { 
+        if (codigoAscii < 48 || codigoAscii > 57) {
             return false;
         }
     }

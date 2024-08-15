@@ -87,7 +87,7 @@ guardar = function () {
     let valorApellido = recuperarTexto("txtApellido");
     let valorSueldo = recuperarFloat("txtSueldo");
     limpiar();
-    let validaciones=0;
+    let validaciones = 0;
     if (valorCedula.length == 10 && esDigito(valorCedula)) {
         validaciones++;
     } else {
@@ -109,7 +109,7 @@ guardar = function () {
         mostrarTexto("lblErrorSueldo", "Solo se admiten numeros decimales entre 400 y 5000");
     }
 
-    if(validaciones==4){
+    if (validaciones == 4) {
         if (esNuevo == true) {
             let objetoEmpleado = {};
             objetoEmpleado.cedula = valorCedula;
@@ -135,7 +135,7 @@ limpiar = function () {
     mostrarTexto("lblErrorSueldo", "");
 }
 
-deshabilitarCmpPrincipales=function(){
+deshabilitarCmpPrincipales = function () {
     deshabilitarComponente("txtCedula");
     deshabilitarComponente("txtNombre");
     deshabilitarComponente("txtApellido");
