@@ -45,11 +45,7 @@ mostrarEmpleados = function () {
     }
     contenidoTabla += "</table>";
     cmpTabla.innerHTML = contenidoTabla;
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
+    deshabilitarCmpPrincipales();
 }
 
 let esNuevo = false;
@@ -124,6 +120,7 @@ guardar = function () {
             if (nuevoEmpleado == true) {
                 alert("Cliente agregado");
                 mostrarEmpleados();
+                deshabilitarCmpPrincipales();
             } else {
                 alert("Ya existe el cliente con la cedula: " + objetoEmpleado.cedula);
             }
@@ -136,4 +133,12 @@ limpiar = function () {
     mostrarTexto("lblErrorNombre", "");
     mostrarTexto("lblErrorApellido", "");
     mostrarTexto("lblErrorSueldo", "");
+}
+
+deshabilitarCmpPrincipales=function(){
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
 }
