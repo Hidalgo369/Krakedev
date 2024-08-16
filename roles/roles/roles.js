@@ -180,3 +180,14 @@ btnLimpiar = function () {
     esNuevo = false;
     deshabilitarCmpPrincipales();
 }
+
+buscarPorRol = function () {
+    let cmpBuscar = recuperarTexto("txtBusquedaCedulaRol");
+    let busqueda = buscarEmpleado(cmpBuscar);
+    if (busqueda == null) {
+        alert("Empleado no existe");
+    }else{
+        mostrarTexto("infoNombre", busqueda.nombre + " " + busqueda.apellido);
+        mostrarTexto("infoSueldo", busqueda.sueldo);
+    }
+}
