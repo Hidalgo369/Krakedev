@@ -52,11 +52,7 @@ let esNuevo = false;
 
 ejecutarNuevo = function () {
     esNuevo = true;
-    habilitarComponente("txtCedula");
-    habilitarComponente("txtNombre");
-    habilitarComponente("txtApellido");
-    habilitarComponente("txtSueldo");
-    habilitarComponente("btnGuardar");
+    habilitarCmpPrincipales();
 }
 
 buscarEmpleado = function (cedula) {
@@ -118,12 +114,22 @@ guardar = function () {
             objetoEmpleado.sueldo = valorSueldo;
             let nuevoEmpleado = agregarEmpleado(objetoEmpleado);
             if (nuevoEmpleado == true) {
+                esNuevo = false;
                 alert("Cliente agregado");
                 mostrarEmpleados();
                 deshabilitarCmpPrincipales();
             } else {
                 alert("Ya existe el cliente con la cedula: " + objetoEmpleado.cedula);
             }
+        }else{
+            let cmpBuscar = recuperarTexto("txtBusquedaCedula");
+            let busqueda=buscarEmpleado(cmpBuscar);
+            busqueda.nombre=recuperarTexto("txtNombre");
+            busqueda.apellido=recuperarTexto("txtApellido");
+            busqueda.sueldo=recuperarTexto("txtSueldo");
+            alert("Empleado modificado exitosamente");
+            mostrarEmpleados();
+            deshabilitarCmpPrincipales();
         }
     }
 }
@@ -141,4 +147,27 @@ deshabilitarCmpPrincipales = function () {
     deshabilitarComponente("txtApellido");
     deshabilitarComponente("txtSueldo");
     deshabilitarComponente("btnGuardar");
+}
+
+habilitarCmpPrincipales = function () {
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+}
+
+ejecutarBusqueda = function () {
+    let cmpBuscar = recuperarTexto("txtBusquedaCedula");
+    let busqueda = buscarEmpleado(cmpBuscar);
+    if (busqueda == null) {
+        alert("Empleado no existe");
+    }
+    else {
+        mostrarTextoEnCaja("txtCedula", busqueda.cedula);
+        mostrarTextoEnCaja("txtNombre", busqueda.nombre);
+        mostrarTextoEnCaja("txtApellido", busqueda.apellido);
+        mostrarTextoEnCaja("txtSueldo", busqueda.sueldo);
+        habilitarCmpPrincipales();
+    }
 }
