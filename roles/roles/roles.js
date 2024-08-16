@@ -186,8 +186,34 @@ buscarPorRol = function () {
     let busqueda = buscarEmpleado(cmpBuscar);
     if (busqueda == null) {
         alert("Empleado no existe");
-    }else{
+    } else {
         mostrarTexto("infoNombre", busqueda.nombre + " " + busqueda.apellido);
         mostrarTexto("infoSueldo", busqueda.sueldo);
+    }
+}
+
+calcularAporteEmpleado = function (sueldo) {
+    let valorAporte = parseFloat(sueldo * (9.45 / 100));
+    return valorAporte;
+}
+
+calcularValorAPagar = function (sueldo, aporteIess, descuento) {
+    let valorAPagar = sueldo - (aporteIess + descuento);
+    return valorAPagar;
+}
+
+calcularRol = function () {
+    mostrarTexto("lblErrorDescuentos", "");
+    mostrarTexto("infoIESS", "");
+    mostrarTexto("infoPago", "");
+    let sueldo = parseFloat(recuperarTextoDiv("infoSueldo"));
+    let descuento = recuperarFloat("txtDescuentos")
+    if (!isNaN(descuento) && descuento >= 0 && descuento <= sueldo) {
+        let aporteIess = calcularAporteEmpleado(sueldo);
+        let total = calcularValorAPagar(sueldo, aporteIess, descuento);
+        mostrarTexto("infoIESS", aporteIess.toFixed(2));
+        mostrarTexto("infoPago", total.toFixed(2));
+    } else {
+        mostrarTexto("lblErrorDescuentos", "Descuento inválido: deben ser un número, menor al sueldo");
     }
 }
