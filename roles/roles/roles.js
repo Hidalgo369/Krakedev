@@ -1,7 +1,7 @@
 let empleados = [
-    { cedula: "1714616123", nombre: "John", apellido: "Cena", sueldo: 500.0 },
-    { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
-    { cedula: "0987654321", nombre: "Daniel", apellido: "Pintado", sueldo: 500.0 }
+    { cedula: "1714616123", nombre: "JOHN", apellido: "CENA", sueldo: 500.0 },
+    { cedula: "0914632123", nombre: "LUISA", apellido: "GONZALEZ", sueldo: 900.0 },
+    { cedula: "0987654321", nombre: "DANIEL", apellido: "PINTADO", sueldo: 5000.0 }
 ]
 
 mostrarOpcionEmpleado = function () {
@@ -82,7 +82,7 @@ guardar = function () {
     let valorNombre = recuperarTexto("txtNombre");
     let valorApellido = recuperarTexto("txtApellido");
     let valorSueldo = recuperarFloat("txtSueldo");
-    limpiar();
+    limpiarErrores();
     let validaciones = 0;
     if (valorCedula.length == 10 && esDigito(valorCedula)) {
         validaciones++;
@@ -121,12 +121,12 @@ guardar = function () {
             } else {
                 alert("Ya existe el cliente con la cedula: " + objetoEmpleado.cedula);
             }
-        }else{
+        } else {
             let cmpBuscar = recuperarTexto("txtBusquedaCedula");
-            let busqueda=buscarEmpleado(cmpBuscar);
-            busqueda.nombre=recuperarTexto("txtNombre");
-            busqueda.apellido=recuperarTexto("txtApellido");
-            busqueda.sueldo=recuperarTexto("txtSueldo");
+            let busqueda = buscarEmpleado(cmpBuscar);
+            busqueda.nombre = recuperarTexto("txtNombre");
+            busqueda.apellido = recuperarTexto("txtApellido");
+            busqueda.sueldo = recuperarTexto("txtSueldo");
             alert("Empleado modificado exitosamente");
             mostrarEmpleados();
             deshabilitarCmpPrincipales();
@@ -134,7 +134,7 @@ guardar = function () {
     }
 }
 
-limpiar = function () {
+limpiarErrores = function () {
     mostrarTexto("lblErrorCedula", "");
     mostrarTexto("lblErrorNombre", "");
     mostrarTexto("lblErrorApellido", "");
@@ -170,4 +170,13 @@ ejecutarBusqueda = function () {
         mostrarTextoEnCaja("txtSueldo", busqueda.sueldo);
         habilitarCmpPrincipales();
     }
+}
+
+btnLimpiar = function () {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    esNuevo = false;
+    deshabilitarCmpPrincipales();
 }
