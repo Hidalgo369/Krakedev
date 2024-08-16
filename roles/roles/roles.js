@@ -262,10 +262,10 @@ guardarRol = function () {
     let objetoRol = {};
     objetoRol.cedula = valorCedula;
     objetoRol.nombre = valorNombre;
-    objetoRol.sueldo = valorSueldo.toFixed(3);
-    objetoRol.iess = valorIess.toFixed(3);
-    objetoRol.aporte = valorAporteEmpleador.toFixed(3);
-    objetoRol.pagar = valorPagar.toFixed(3);
+    objetoRol.sueldo = valorSueldo.toFixed(2);
+    objetoRol.iess = valorIess.toFixed(2);
+    objetoRol.aporte = valorAporteEmpleador.toFixed(2);
+    objetoRol.pagar = valorPagar.toFixed(2);
     let nuevoRol = agregarRol(objetoRol);
     if (nuevoRol == true) {
         alert("La información se guardó con éxito");
@@ -310,7 +310,10 @@ mostrarTotales = function () {
         totalEmpleador += parseFloat(roles[i].aporte);
         totalAPagar += parseFloat(roles[i].pagar);
     }
-    mostrarTexto("infoTotalPago", totalAPagar.toFixed(3));
-    mostrarTexto("infoAporteEmpresa", totalEmpleado.toFixed(3));
-    mostrarTexto("infoAporteEmpleado", totalEmpleador.toFixed(3));
+    mostrarTexto("infoTotalPago", totalAPagar.toFixed(2));
+    mostrarTexto("infoAporteEmpresa", totalEmpleado.toFixed(2));
+    mostrarTexto("infoAporteEmpleado", totalEmpleador.toFixed(2));
+
+    let totalNomina = totalEmpleado + totalEmpleador + totalAPagar;
+    mostrarTexto("infoNomina", totalNomina.toFixed(2));
 }
