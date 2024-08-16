@@ -16,6 +16,8 @@ mostrarOpcionRol = function () {
     mostrarComponente("divRol");
     ocultarComponente("divResumen");
     deshabilitarComponente("btnGuardarRol");
+    mostrarRoles();
+    mostrarTotales();
 }
 
 mostrarOpcionResumen = function () {
@@ -253,18 +255,62 @@ calcularAporteEmpleador = function (sueldo) {
 guardarRol = function () {
     let valorCedula = recuperarTextoDiv("infoCedula")
     let valorNombre = recuperarTextoDiv("infoNombre");
-    let valorSueldo = recuperarTextoDiv("infoSueldo");
-    let valorIess = recuperarTextoDiv("infoIESS");
-    let valorPagar = recuperarTextoDiv("infoPago");
+    let valorSueldo = recuperarFloatDiv("infoSueldo");
+    let valorIess = recuperarFloatDiv("infoIESS");
+    let valorPagar = recuperarFloatDiv("infoPago");
+    let valorAporteEmpleador = calcularAporteEmpleador(valorSueldo);
     let objetoRol = {};
     objetoRol.cedula = valorCedula;
     objetoRol.nombre = valorNombre;
-    objetoRol.sueldo = valorSueldo;
-    objetoRol.iess = valorIess;
-    objetoRol.pagar = valorPagar;
+    objetoRol.sueldo = valorSueldo.toFixed(3);
+    objetoRol.iess = valorIess.toFixed(3);
+    objetoRol.aporte = valorAporteEmpleador.toFixed(3);
+    objetoRol.pagar = valorPagar.toFixed(3);
     let nuevoRol = agregarRol(objetoRol);
     if (nuevoRol == true) {
         alert("La información se guardó con éxito");
         deshabilitarComponente("btnGuardarRol");
+        mostrarRoles();
+        mostrarTotales();
     }
+}
+
+mostrarRoles = function () {
+    mostrarComponente("tablaResumen");
+    let cmpTabla = document.getElementById("tablaResumen");
+    let contenidoTabla = "<table><tr>" +
+        "<th>CEDULA</th>" +
+        "<th>NOMBRE</th>" +
+        "<th>VALOR A PAGAR</th>" +
+        "<th>APORTE EMPLEADO</th>" +
+        "<th>APORTE EMPLEADOR</th>" +
+        "</tr>";
+    let elementoRol;
+    for (let i = 0; i < roles.length; i++) {
+        elementoRol = roles[i];
+        contenidoTabla +=
+            "<tr><td>" + elementoRol.cedula + "</td>"
+            + "<td>" + elementoRol.nombre + "</td>"
+            + "<td>" + elementoRol.pagar + "</td>"
+            + "<td>" + elementoRol.iess + "</td>"
+            + "<td>" + elementoRol.aporte + "</td>"
+            + "</tr>";
+
+    }
+    contenidoTabla += "</table>";
+    cmpTabla.innerHTML = contenidoTabla;
+}
+
+mostrarTotales = function () {
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalAPagar = 0;
+    for (let i = 0; i < roles.length; i++) {
+        totalEmpleado += parseFloat(roles[i].iess);
+        totalEmpleador += parseFloat(roles[i].aporte);
+        totalAPagar += parseFloat(roles[i].pagar);
+    }
+    mostrarTexto("infoTotalPago", totalAPagar.toFixed(3));
+    mostrarTexto("infoAporteEmpresa", totalEmpleado.toFixed(3));
+    mostrarTexto("infoAporteEmpleado", totalEmpleador.toFixed(3));
 }
