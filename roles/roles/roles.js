@@ -15,6 +15,7 @@ mostrarOpcionRol = function () {
     ocultarComponente("divEmpleado");
     mostrarComponente("divRol");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
 }
 
 mostrarOpcionResumen = function () {
@@ -187,6 +188,7 @@ buscarPorRol = function () {
     if (busqueda == null) {
         alert("Empleado no existe");
     } else {
+        mostrarTexto("infoCedula", busqueda.cedula);
         mostrarTexto("infoNombre", busqueda.nombre + " " + busqueda.apellido);
         mostrarTexto("infoSueldo", busqueda.sueldo);
     }
@@ -213,7 +215,56 @@ calcularRol = function () {
         let total = calcularValorAPagar(sueldo, aporteIess, descuento);
         mostrarTexto("infoIESS", aporteIess.toFixed(2));
         mostrarTexto("infoPago", total.toFixed(2));
+        habilitarComponente("btnGuardarRol");
     } else {
         mostrarTexto("lblErrorDescuentos", "Descuento inválido: deben ser un número, menor al sueldo");
+    }
+}
+
+let roles = [];
+
+buscarRol = function (cedula) {
+    let elementoRol;
+    let rolEncontrado = null;
+    for (let i = 0; i < roles.length; i++) {
+        elementoRol = roles[i];
+        if (elementoRol.cedula == cedula) {
+            rolEncontrado = elementoRol;
+        }
+    }
+    return rolEncontrado;
+}
+
+agregarRol = function (rol) {
+    let resultado = buscarRol(rol.cedula);
+    if (resultado == null) {
+        roles.push(rol);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+calcularAporteEmpleador = function (sueldo) {
+    let pagarEmpleador = parseFloat(sueldo * (11.15 / 100));
+    return pagarEmpleador;
+}
+
+guardarRol = function () {
+    let valorCedula = recuperarTextoDiv("infoCedula")
+    let valorNombre = recuperarTextoDiv("infoNombre");
+    let valorSueldo = recuperarTextoDiv("infoSueldo");
+    let valorIess = recuperarTextoDiv("infoIESS");
+    let valorPagar = recuperarTextoDiv("infoPago");
+    let objetoRol = {};
+    objetoRol.cedula = valorCedula;
+    objetoRol.nombre = valorNombre;
+    objetoRol.sueldo = valorSueldo;
+    objetoRol.iess = valorIess;
+    objetoRol.pagar = valorPagar;
+    let nuevoRol = agregarRol(objetoRol);
+    if (nuevoRol == true) {
+        alert("La información se guardó con éxito");
+        deshabilitarComponente("btnGuardarRol");
     }
 }
