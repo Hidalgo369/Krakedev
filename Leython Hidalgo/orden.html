@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Evaluación</title>
+    <link rel="stylesheet" href="orden.css" />
+    <script src="orden.js"></script>
+    <script src="utilitarios.js"></script>
+</head>
+
+<body onload="mostrarTabla();">
+    <div class=info>
+        <h2>Ingrese el nombre</h2>
+        <input type="text" id="nombre" />
+        <h2>Digite la edad</h2>
+        <div id="errorNombre"></div>
+        <input type="text" id="edad" />
+        <div id="errorEdad"></div>
+    </div>
+    <div class="botones">
+        <input type="button" value="Guardar" onclick="agregarPersona();" />
+        <input type="button" value="Encontrar Mayor" onclick="determinarMayor();" />
+        <input type="button" value="Encontrar Menor" onclick="determinarMenor();" />
+    </div>
+    <div class="table" id="tabla"></div>
+    <div class="menorMayor">
+        <div id="mayor"></div>
+        <div id="menor"></div>
+    </div>
+
+</body>
+
+</html>
